@@ -69,16 +69,17 @@
 
     <build>
         <plugins>
-            <plugin>        <!-- OBS! Working setup for maven plugin! ATTN. Initilizr 3.4 might configure it differently!  -->
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.3.2</version>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <from>
+                        <image>eclipse-temurin:21-jre</image> <!--specify your docker java version image-->
+                    </from>
+                    <to>
+                        <image>jackrichterdocker/${project.artifactId}:s4</image>
+                    </to>
                 </configuration>
             </plugin>
         </plugins>
