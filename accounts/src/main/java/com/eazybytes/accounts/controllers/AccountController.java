@@ -1,6 +1,7 @@
 package com.eazybytes.accounts.controllers;
 
 import com.eazybytes.accounts.constants.AccountConstants;
+import com.eazybytes.accounts.dto.AccountsContactInfoDto;
 import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.dto.ErrorResponseDto;
 import com.eazybytes.accounts.dto.ResponseDto;
@@ -35,15 +36,18 @@ public class AccountController {
 
     private final IAccountService iAccountService;
 
+    public AccountController(IAccountService iAccountService) {
+        this.iAccountService = iAccountService;
+    }
+
     @Value("${build.version}")
     private String buildVersion;
 
     @Autowired
     private Environment environment;
 
-    public AccountController(IAccountService iAccountService) {
-        this.iAccountService = iAccountService;
-    }
+    @Autowired
+    private AccountsContactInfoDto accountsContactInfoDto;
 
     @Operation(
             summary = "Create Account REST API",
@@ -217,7 +221,7 @@ public class AccountController {
 
     @Operation(
             summary = "Get Maven version",
-            description = "Get MaVEN version locally installed where accounts microservice is being developed"
+            description = "Get Maven version locally installed where accounts microservice is being developed"
     )
     @ApiResponses({
             @ApiResponse(
@@ -237,5 +241,29 @@ public class AccountController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(environment.getProperty("M2_HOME"));
+    }
+
+    @Operation(
+            summary = "Get Contact Info",
+            description = "Get Contact Info details that can be reached out in case of any issue"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountsContactInfoDto);
     }
 }
