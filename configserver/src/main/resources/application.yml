@@ -2,13 +2,20 @@ spring:
   application:
     name: "configserver"
   profiles:
-    active: native
+    active: git
+  # active: native    // Use native only when having classpath or file config alternatives! Otherwise, use git (Recommended)!!!
   cloud:
     config:
       server:
-        native:
-          #          search-locations: "classpath:/config"
-          search-locations: "file:///C://Users//Acer//Documents//eazybytes//config"
+        # native:
+          # search-locations: "classpath:/config"
+          # search-locations: "file:///C://Users//Acer//Documents//eazybytes//config"
+        git:
+          uri: "https://github.com/eazybytes/eazybytes-config.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
 
 server:
   port: 8071
