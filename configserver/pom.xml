@@ -72,7 +72,7 @@
 						<image>eclipse-temurin:21-jre</image> <!--specify your docker java version image-->
 					</from>
 					<to>
-						<image>jackrichterdocker/${project.artifactId}:s6</image>
+						<image>jackrichterdocker/${project.artifactId}:s7</image>
 					</to>
 				</configuration>
 			</plugin>
