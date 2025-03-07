@@ -1,22 +1,6 @@
 services:
-  rabbit:
-    image: rabbitmq:4.0-management
-    hostname: rabbitmq
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    healthcheck:
-      test: rabbitmq-diagnostics check_port_connectivity
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 5s
-    extends:
-      file: common-config.yml
-      service: network-deploy-service
-
   configserver:
-    image: "jackrichterdocker/configserver:s6"
+    image: "jackrichterdocker/configserver:s8"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -34,7 +18,7 @@ services:
       service: microservice-base-config
 
   accounts:
-    image: "jackrichterdocker/accounts:s6"
+    image: "jackrichterdocker/accounts:s8"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -48,7 +32,7 @@ services:
       service: microservice-configserver-config
 
   loans:
-    image: "jackrichterdocker/loans:s6"
+    image: "jackrichterdocker/loans:s8"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -62,8 +46,8 @@ services:
       service: microservice-configserver-config
 
   cards:
-    image: "jackrichterdocker/cards:s6"
-    container_name: cards-Ims
+    image: "jackrichterdocker/cards:s8"
+    container_name: cards-ms
     ports:
       - "9000:9000"
     depends_on:
