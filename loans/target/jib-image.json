@@ -1,1 +1,1 @@
-{"image":"jackrichterdocker/loans:s6","imageId":"sha256:15a954a394303cad8a6f185d15cffd419fd73a2811fc9103d45483d25f211e11","imageDigest":"sha256:ddc3ad4e0b6e644c968815d49d24df8398a87cb1c83c0e55348d9ddb5ab0edcd","tags":["s6"],"imagePushed":false}
+{"image":"jackrichterdocker/loans:s8","imageId":"sha256:713b3b55cacb96634b6aca1794a13b7b1a9b466e0ebc06de2afbc3ab261494ab","imageDigest":"sha256:956a24d81795e5a72a58fe7034cbbe1d0c0bca6d1d0cb1c311335e5478096b5f","tags":["s8"],"imagePushed":false}

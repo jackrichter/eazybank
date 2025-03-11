@@ -1,1 +1,1 @@
-{"image":"jackrichterdocker/cards:s6","imageId":"sha256:9ef55b14d5b8a0d797936a049165efdb9d4c8eaaa4bfa138c5713c20b0e6408d","imageDigest":"sha256:73306b4aadeb8cb8deabc63b930e351d58faba3c3490612d5a8bd171d0c415cb","tags":["s6"],"imagePushed":false}
+{"image":"jackrichterdocker/cards:s8","imageId":"sha256:148f9f5afa4ba5b7b1fd21e88de039062e10fc4ac524014747bdf3217a51581e","imageDigest":"sha256:6066f37d0440e7aa3b0444d1920a5ed40a66854871100b1a8bc16bc25852b594","tags":["s8"],"imagePushed":false}
