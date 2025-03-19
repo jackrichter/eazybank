@@ -1,0 +1,22 @@
+#server:        ATTN. This is read from GitHub eurekaserver.yml in eazybank-config repository
+#  port: 8070
+spring:
+  application:
+    name: "eurekaserver"
+  config:
+    import: optional:configserver:http://localhost:8071/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readinessState:
+      enabled: true
+    livenessState:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
