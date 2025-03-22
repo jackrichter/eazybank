@@ -39,13 +39,13 @@ public class CustomerServiceImpl implements ICustomerService {
         customerDetailsDto.setAccountsDto(AccountsMapper.maptoAccountsDto(accounts, new AccountsDto()));
 
         // Cards and Loans
-        ResponseEntity<CardsDto> cardsDtoResponseEntity = cardsFeignClient.fetchCardDetails(mobileNumber, correlationId);
+        ResponseEntity<CardsDto> cardsDtoResponseEntity = cardsFeignClient.fetchCardDetails(correlationId, mobileNumber);
         if (cardsDtoResponseEntity != null) {
             customerDetailsDto.setCardsDto(cardsDtoResponseEntity.getBody());
         }
 //        customerDetailsDto.setCardsDto((cardsFeignClient.fetchCardDetails(correlationId, mobileNumber)).getBody());
 
-        ResponseEntity<LoansDto> loansDtoResponseEntity = loansFeignClient.fetchLoanDetails(mobileNumber, correlationId);
+        ResponseEntity<LoansDto> loansDtoResponseEntity = loansFeignClient.fetchLoanDetails(correlationId, mobileNumber);
         if (loansDtoResponseEntity != null) {
             customerDetailsDto.setLoansDto(loansDtoResponseEntity.getBody());
         }
